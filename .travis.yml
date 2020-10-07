@@ -15,7 +15,7 @@ before_install:
 - echo -e "\n8933bad161af4178b1185d1a37fbf41ea5269c55" > "$ANDROID_HOME/licenses/android-sdk-license"
 - echo -e "\n84831b9409646a918e30573bab4c9c91346d8abd" > "$ANDROID_HOME/licenses/android-sdk-preview-license"
 script:
-  - .travis/build.sh
+  - .travis/build.sh && .travis/create-repo.sh
 before_cache:
 - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
 - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
@@ -31,11 +31,10 @@ deploy:
   target-branch: repo
   skip-cleanup: true
   keep-history: true
-  github-token:
-    secure: "SCzQyavQM/bfOjEF+eKp9l0DxiAgsB3v64hYQNb2s/sql4WiL8Mjv9HEAyxBWDfGwUg1cNELWR7s2Y1j/8lCLFaZ5doy7222ZSaRP48MGhpGJQi22jGOqavMNCIcS5EZCjo3OJ9+VWLcx67OIJUQK3KHmnxgeM00luPjzC0a3FiED7/7joU4y9fkQhizfnV6AEZjEma0wUH4+wQxUC+5H71nNDZuz77BO3slZ4TX2YKg9O+QIr5jIjv4GT7dqh+UDQUoMvPXVtORUTI3yOzziwEawc64uMUr+0NtSr9ww+9lg4fs7IeVwkTlDEDbVDFdwvLYAvKlZCqboKygG7NX5Pi11grLYYCrqynXXIsyyBtEyV/fkGt2UcQrMOJRxxI6RkZFuUwozP/DVVO9XiebEfoKKZaQ/ehljveu8+B5S+qsKTO/sFMQJhvi2muhXkUvXeduSjHfqgAxEzrnh6sTR4laI05ICVJVw5j38iUfqOEo4rF+cX11ywgHFzp9RJjYCYhndvobv5vtwk77hrndzVcLlKKlKO4tJDfwg+czRRD7oSX9pT0NeL7tRyD86sNryPMG5pBAfJ4D7knnM9+YmRNJmnsmnu/FGeYlBygUK5IiG05LQ7TfkXiF0wQt7nvlixAiB3ULrso18lqP9U2bGHdjLNaRip3dVxHbrCmP9xY="
+  github-token: $GH_TOKEN
   on:
     branch: master
-    repo: inorichi/tachiyomi-extensions
+    repo: lunaisnotaboy/tachiyomi-extensions
 env:
   global:
   - secure: "VvCw9E2eOPoExCKjs4jbGEUJ8hYS6Hw8YzJ4VPqtLa0YJSMKhdwNAcW2ldy47tJklTYKv6djehjh7oivTMFOR4m5jhG5MNrAbCprPtTeiK7KU3o8vCK8CyCYgRS/+LfmryNdXTB4N5B8VQzx26jl3+aJE8g5uJacSOYnv1bc+i89ZLAVW9Xwy4EGKZqQW/cZrDS6NDAPyU05Hell/PZMcHIqkNhcb4AJdGfjXJ3zOrv02F7PxYL8cAsapfUgaFME/2rNokuUTYAWN9lHx3VH51bxEM36lVlPKme0O9Op7hVE4GWvcjab7u54oOlOTFk1L4f2gYC75f1rsweRLwxpQ/XgZgwMAQHkGdYsp1jagVJkbXZE0p+jFN12KOQK/+9ahLuSJwxk4rCsIvR1XlIU2Taw0/v3OWM5u2A00WQkRHW7A3LfHGDFg2JgKCxPnBlzUFliFEubuU5WyWK/BllqZPpSUhinQrymVQEdSFM1eJEfJNVxN6lj4DmcWUmcMiRQIjol5tqopDbL/Htf3sRMacL+X9acPSuUQGnJdQWJ+6VIXmzyrjQl1IXCll4MHvAAnHkn/v4wFHjgKMESYlVtk6q8yiWVgoGkR1lq13TYnjXLTPqmFgBzFd/IqmNYn+33QwRi9s3Njuawm61eDspqmJ8OXxM+QStDW8DckRQCEts="
