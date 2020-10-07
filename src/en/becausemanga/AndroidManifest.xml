@@ -11,7 +11,7 @@
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data
                         android:scheme="https"
-                        android:host="chat.becausetrigger.ga"
+                        android:host="manga.becausetrigger.ga"
                         android:pathPattern="/read/manga/..*" />
             </intent-filter>
         </activity>
